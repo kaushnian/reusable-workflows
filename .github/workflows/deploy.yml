@@ -10,8 +10,8 @@ jobs:
       id: step_one
       run: |
         cat << EOF > $GITHUB_ENV
-        ENVIRONMENT = prod
-        TAG = ${{secrets.SECRET1}}
+        ENVIRONMENT=prod
+        TAG=${{secrets.SECRET1}}
         EOF
     - name: Set env vars (DEV)
       if: ${{ github.ref_name == 'dev'}}
