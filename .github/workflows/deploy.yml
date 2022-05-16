@@ -6,12 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref_name == 'main'}}
     env: 
-      ENVIRONMENT: dev
+      ENVIRONMENT: 'DEV'
     steps:
       - name: Push toto
         env:
           TAG: ${{ github.ref_name == 'main' && 'PROD'}}
-        run: echo "ENVIRONMENT IS $TAG"
+        run: echo "TAG IS $TAG"
+      - run: echo "ENVIRONMENT IS $ENVIRONMENT"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
