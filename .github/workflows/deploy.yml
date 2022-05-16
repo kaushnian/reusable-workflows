@@ -4,23 +4,17 @@ jobs:
     
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name == 'main'}}
-    env: 
-      ENVIRONMENT: 'DEV'
     steps:
-      - name: Push toto
-        env:
-          TAG: ${{ github.ref_name == 'main' && 'PROD'}}
-        run: echo "TAG IS $TAG"
-      - run: echo "ENVIRONMENT IS $ENVIRONMENT"
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    - name: Set env vars (PROD)
+      if: ${{ github.ref_name == 'main'}}
+      id: step_one
+      run: |
+        echo "ENVIRONMENT=prod" >> $GITHUB_ENV
+    - name: Set env vars (DEV)
+      if: ${{ github.ref_name == 'dev'}}
+      id: step_two
+      run: |
+        echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+    - name: Deploy!!
+      run: echo "ENVIRONMENT 1 IS ${{env.ENVIRONMENT}}"
+    - run: echo "ENVIRONMENT 2 IS ${{env.ENVIRONMENT}}"
