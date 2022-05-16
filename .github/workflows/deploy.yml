@@ -9,7 +9,10 @@ jobs:
       if: ${{ github.ref_name == 'main'}}
       id: step_one
       run: |
-        echo "ENVIRONMENT=prod" >> $GITHUB_ENV
+        cat << EOF > $GITHUB_ENV
+        ENVIRONMENT=prod
+        TAG=superprod
+        EOF
     - name: Set env vars (DEV)
       if: ${{ github.ref_name == 'dev'}}
       id: step_two
