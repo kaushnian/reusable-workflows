@@ -1,20 +1,14 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  set_env:
+    
+  deploy:
     runs-on: ubuntu-latest
-    name: Set environment vars for the "${{ github.ref_name }}" branch updade
     steps:
       - name: 'Set environment'
         if: ${{ github.ref_name == 'main'}}
         env: 
           ENVIRONMENT: dev
-        run: ''
-    
-  Explore-GitHub-Actions:
-    name: Deploy to the ${{env.ENVIRONMENT}}
-    runs-on: ubuntu-latest
-    steps:
       - run: echo "ENVIRONMENT1 ${{env.ENVIRONMENT}}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
