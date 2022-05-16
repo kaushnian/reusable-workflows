@@ -12,7 +12,7 @@ jobs:
         run: ''
     
   Explore-GitHub-Actions:
-    name: Deploy to the ${{env.ENVIRONMENT}}
+    name: Deploy to the ${{ENVIRONMENT}}
     runs-on: ubuntu-latest
     steps:
       - run: echo "ENVIRONMENT1 ${{ENVIRONMENT}}"
