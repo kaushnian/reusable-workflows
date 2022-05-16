@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Push toto
         env:
-          TAG: ${{ github.ref_name == 'main'}} && 'PROD'
+          TAG: ${{ github.ref_name == 'main' && 'PROD'}}
         run: echo "ENVIRONMENT IS $TAG"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
