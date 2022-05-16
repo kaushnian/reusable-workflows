@@ -19,5 +19,5 @@ jobs:
         TAG=superdev
         EOF
     - name: Deploy!!
-      run: echo "ENVIRONMENT 1 IS ${{env.ENVIRONMENT}}"
+      run: echo "ENVIRONMENT 1 IS ${{env.ENVIRONMENT}}, TAG IS ${{env.TAG}}"
     - run: echo "TAG IS ${{env.TAG}}"
