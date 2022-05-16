@@ -7,14 +7,15 @@ jobs:
     steps:
       - name: 'Set environment'
         if: ${{ github.ref_name }} == 'dev'
-        run: ENVIRONMENT=dev
+        env: 
+          ENVIRONMENT: dev
+        run: ''
     
   Explore-GitHub-Actions:
-    name: Deploy to the ${ENVIRONMENT}
+    name: Deploy to the ${{env.ENVIRONMENT}}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "ENVIRONMENT1 $ENVIRONMENT"
-      - run: echo "ENVIRONMENT2 ${ENVIRONMENT}"
+      - run: echo "ENVIRONMENT1 ${{ENVIRONMENT}}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
