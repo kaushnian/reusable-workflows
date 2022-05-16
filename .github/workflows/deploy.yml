@@ -4,10 +4,10 @@ jobs:
     
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.ref_name == 'main'}}
+    env: 
+      ENVIRONMENT: dev
     steps:
-      - name: 'Set environment'
-        if: ${{ github.ref_name == 'main'}}
-        run: ENVIRONMENT=dev
       - run: echo "ENVIRONMENT IS $ENVIRONMENT"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
