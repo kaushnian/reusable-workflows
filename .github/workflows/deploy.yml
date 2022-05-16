@@ -6,7 +6,7 @@ jobs:
     name: Set environment vars for the "${{ github.ref_name }}" branch updade
     steps:
       - name: 'Set environment'
-        if: ${{ github.ref_name }} == 'dev'
+        if: ${{ github.ref_name == 'dev'}}
         env: 
           ENVIRONMENT: dev
         run: ''
