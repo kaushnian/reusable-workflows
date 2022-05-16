@@ -1,8 +1,15 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
+  set_env:
+    runs-on: ubuntu-latest
+    name: Set environment vars for the "${{ github.ref_name }}" branch updade
+    if: ${{ github.ref_name }} == 'dev'
+    env: 
+      ENVIRONMENT: 'dev'
+    
   Explore-GitHub-Actions:
-    name: Deploy to ${{ github.ref_name }}
+    name: Deploy to the "${{ ENVIRONMENT }}"
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
