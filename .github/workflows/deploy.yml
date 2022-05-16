@@ -10,7 +10,7 @@ jobs:
         run: echo "dev" >> $ENVIRONMENT
     
   Explore-GitHub-Actions:
-    name: Deploy to the "${{ ENVIRONMENT }}"
+    name: Deploy to the "${{ env.ENVIRONMENT }}"
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
