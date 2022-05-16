@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: 'Set environment'
         if: ${{ github.ref_name }} == 'dev'
-        run: ENVIRONMENT=dev
+        run: $ENVIRONMENT=dev
     
   Explore-GitHub-Actions:
     name: Deploy to the "${{ ENVIRONMENT }}"
