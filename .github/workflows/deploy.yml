@@ -1,8 +1,9 @@
-name: GitHub Actions Demo ${{secrets.SECRET1}}
-on: [push]
-jobs:
+name: Prepare for deployment
+on:
+  workflow_call:
     
-  deploy:
+jobs:
+  prepare:
     runs-on: ubuntu-latest
     steps:
     - name: Set env vars (PROD) ${{ github.ref_name}}
