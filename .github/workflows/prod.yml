@@ -3,15 +3,15 @@ on:
     branches:
       - main
 jobs:
-  build:
-    name: Build
-    uses: ./.github/workflows/build.yml
-    
-  deploy:
+  production:
     name: Production
-    needs: build
-    uses: ./.github/workflows/deploy.yml
-    with:
-      username: USER
-    secrets:
-      env: PROD
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build the app
+      uses: ./.github/workflows/build.yml
+      
+    - name: Deploy to Production
+      uses: ./.github/workflows/deploy.yml
+      with:
+        username: USER
+        secrets: PROD
