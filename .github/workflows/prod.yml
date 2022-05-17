@@ -12,20 +12,11 @@ jobs:
     name: Production Push to AWS ECR 
     needs: build
     uses: ./.github/workflows/aws_ecr.yml
-    
-  deploy:    
-    name: Production Deploy
+          
+  run-ec2:    
+    name: Production Run EC2
     needs: aws-ecr
-    uses: ./.github/workflows/deploy.yml
-    with:
-      username: USER
-    secrets:
-      env: PROD
-      
-  run-on-ec2:    
-    name: Production Run on EC2
-    needs: aws-ecr
-    uses: ./.github/workflows/run_on_ec2.yml
+    uses: ./.github/workflows/run_ec2.yml
     with:
       username: USER
     secrets:
