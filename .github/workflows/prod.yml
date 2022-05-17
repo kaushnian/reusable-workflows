@@ -4,6 +4,7 @@ on:
       - main
 jobs:
   build:
+    name: Build
     uses: ./.github/workflows/build.yml
     
   deploy:
