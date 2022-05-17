@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      env:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull and run the container on EC2 instance
+        run: echo ${{inputs.username}}, ${{secrets.env}} 
