@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  deploy:
+  run-ec2:
     runs-on: ubuntu-latest
     steps:
       - name: Pull and run the container on EC2 instance
