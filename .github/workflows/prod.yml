@@ -7,6 +7,11 @@ jobs:
   build:
     name: Production Build
     uses: ./.github/workflows/build.yml
+  
+  aws-ecr:
+    name: Production Push to AWS ECR 
+    uses: ./.github/workflows/aws_ecr.yml
+    
   deploy:    
     name: Production Deploy
     uses: ./.github/workflows/deploy.yml
