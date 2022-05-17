@@ -1,0 +1,10 @@
+on:
+  workflow_call:
+  
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: ''
