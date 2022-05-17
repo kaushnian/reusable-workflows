@@ -9,13 +9,6 @@ on:
         required: true
 
 jobs:
-  test:
-    name: Build and Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Tests
-        run: ''
-
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
