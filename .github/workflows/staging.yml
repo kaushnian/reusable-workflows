@@ -13,10 +13,10 @@ jobs:
     needs: build
     uses: ./.github/workflows/aws_ecr.yml
     
-  deploy:    
-    name: Staging Deploy
+  run-ec2:    
+    name: Run EC2
     needs: aws-ecr
-    uses: ./.github/workflows/deploy.yml
+    uses: ./.github/workflows/run_ec2.yml
     with:
       username: USER
     secrets:
