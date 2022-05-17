@@ -8,14 +8,14 @@ jobs:
     name: Production Build and Test 
     uses: ./.github/workflows/build.yml
   
-  aws-ecr:
+  ecr-push:
     name: Production Push to AWS ECR 
     needs: build
-    uses: ./.github/workflows/aws_ecr.yml
+    uses: ./.github/workflows/ecr_push.yml
           
   run-ec2:    
     name: Production Run EC2
-    needs: aws-ecr
+    needs: ecr-push
     uses: ./.github/workflows/run_ec2.yml
     with:
       username: USER
