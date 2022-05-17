@@ -1,5 +1,12 @@
 on:
   workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      env:
+        required: true
 
 jobs:
   test:
@@ -15,7 +22,7 @@ jobs:
     needs: test
     steps:
       - name: Configure AWS credentials
-        run: ''
+        run: echo ${{inputs.username}}, ${{secrets.env}}
       - name: Login to Amazon ECR
         run: ''
       - name: Set the workflow environment vars (DEV)
