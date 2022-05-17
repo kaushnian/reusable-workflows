@@ -15,7 +15,7 @@ jobs:
     
   run-ec2:    
     name: Development Run EC2
-    needs: aws-ecr
+    needs: ecr-push
     uses: ./.github/workflows/run_ec2.yml
     with:
       username: USER
