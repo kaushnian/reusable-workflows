@@ -1,0 +1,11 @@
+
+on:
+  workflow_call:
+
+jobs:
+  aws:
+    name: Push to AWS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push to ECR
+        run: ''
