@@ -1,8 +1,8 @@
-name: Deploy PROD
 on:
   push:
     branches:
       - main
 jobs:
   deploy:
+    name: Production
     uses: kaushnian/temp/.github/workflows/deploy.yml@main
