@@ -1,0 +1,23 @@
+name: Staging
+on:
+  push:
+    branches:
+      - staging
+jobs:
+  build:
+    name: Staging Build and Test 
+    uses: ./.github/workflows/build.yml
+  
+  aws-ecr:
+    name: Staging Push to AWS ECR 
+    needs: build
+    uses: ./.github/workflows/aws_ecr.yml
+    
+  deploy:    
+    name: Staging Deploy
+    needs: aws-ecr
+    uses: ./.github/workflows/deploy.yml
+    with:
+      username: USER
+    secrets:
+      env: STAGING
