@@ -11,4 +11,4 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       username: USER
-      secrets: PROD
+      env: PROD
