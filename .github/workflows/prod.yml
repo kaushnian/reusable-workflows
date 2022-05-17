@@ -5,4 +5,8 @@ on:
 jobs:
   deploy:
     name: Production
-    uses: kaushnian/temp/.github/workflows/deploy.yml@main
+    uses: ./.github/workflows/deploy.yml
+    with:
+      username: USER
+    secrets:
+      env: PROD
