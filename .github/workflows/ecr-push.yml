@@ -1,10 +1,10 @@
 
-name: AWS ESR
+name: ESR Push
 on:
   workflow_call:
 
 jobs:
-  aws-ecr:
+  ecr-push:
     runs-on: ubuntu-latest
     steps:
       - name: Push to ECR
