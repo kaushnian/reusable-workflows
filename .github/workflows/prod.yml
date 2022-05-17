@@ -21,3 +21,12 @@ jobs:
       username: USER
     secrets:
       env: PROD
+      
+  run-on-ec2:    
+    name: Production Run on EC2
+    needs: aws-ecr
+    uses: ./.github/workflows/run_on_ec2.yml
+    with:
+      username: USER
+    secrets:
+      env: PROD
