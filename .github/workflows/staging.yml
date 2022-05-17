@@ -14,7 +14,7 @@ jobs:
     uses: ./.github/workflows/aws_ecr.yml
     
   run-ec2:    
-    name: Run EC2
+    name: Staging Run EC2
     needs: aws-ecr
     uses: ./.github/workflows/run_ec2.yml
     with:
