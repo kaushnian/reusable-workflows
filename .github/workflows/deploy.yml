@@ -1,27 +1,25 @@
-name: Prepare for deployment
+name: Deploy
 on:
   workflow_call:
-    
+
 jobs:
-  prepare:
+  test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
-    - name: Set env vars (PROD) ${{ github.ref_name}}
-      if: ${{ github.ref_name == 'main'}}
-      id: step_one
-      run: |
-        cat << EOF > $GITHUB_ENV
-        ENVIRONMENT=prod
-        TAG=${{secrets.SECRET1}}
-        EOF
-    - name: Set env vars (DEV)
-      if: ${{ github.ref_name == 'dev'}}
-      id: step_two
-      run: |
-        cat << EOF > $GITHUB_ENV
-        ENVIRONMENT=dev
-        TAG=superdev
-        EOF
-    - name: Deploy!!
-      run: echo "ENVIRONMENT 1 IS ${{env.ENVIRONMENT}}, TAG IS ${{env.TAG}}"
-    - run: echo "TAG IS ${{env.TAG}}"
+      - name: Run Tests
+        run: ''
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Configure AWS credentials
+
+      - name: Login to Amazon ECR
+
+      - name: Set the workflow environment vars (DEV)
+
+      - name: Build, tag, and push the image to Amazon ECR
+
+      - name: Pull and run the container on EC2 instance
