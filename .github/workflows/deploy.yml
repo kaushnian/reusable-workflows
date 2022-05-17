@@ -15,11 +15,11 @@ jobs:
     needs: test
     steps:
       - name: Configure AWS credentials
-
+        run: ''
       - name: Login to Amazon ECR
-
+        run: ''
       - name: Set the workflow environment vars (DEV)
-
+        run: ''
       - name: Build, tag, and push the image to Amazon ECR
-
+        run: ''
       - name: Pull and run the container on EC2 instance
