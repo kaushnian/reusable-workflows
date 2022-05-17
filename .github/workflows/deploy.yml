@@ -22,7 +22,7 @@ jobs:
     needs: test
     steps:
       - name: Configure AWS credentials
-        run: echo ${{inputs.username}}, ${{secrets.env}}
+        run: echo ${{inputs.username}}, ${{secrets.env}}, ${{secrets.TEMP}}, 
       - name: Login to Amazon ECR
         run: ''
       - name: Set the workflow environment vars (DEV)
