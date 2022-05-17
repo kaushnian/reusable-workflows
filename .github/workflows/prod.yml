@@ -8,6 +8,7 @@ jobs:
     
   deploy:
     name: Production
+    needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       username: USER
