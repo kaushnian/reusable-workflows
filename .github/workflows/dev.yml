@@ -8,10 +8,10 @@ jobs:
     name: Development Build and Test 
     uses: ./.github/workflows/build.yml
   
-  aws-ecr:
+  ecr-push:
     name: Development Push to AWS ECR 
     needs: build
-    uses: ./.github/workflows/aws_ecr.yml
+    uses: ./.github/workflows/ecr_push.yml
     
   run-ec2:    
     name: Development Run EC2
