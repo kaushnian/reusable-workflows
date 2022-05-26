@@ -16,7 +16,7 @@ jobs:
   set-env-vars:
     runs-on: ubuntu-latest
     outputs:
-      env-vars: ${{ steps.set-env.outputs.env-vars }}
+      env-vars: ${{ steps.env-vars.outputs.env-vars }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
