@@ -1,9 +1,12 @@
 on:
   workflow_call:
+    secrets:
+      env-vars:
+        required: true
   
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: ''
+        run: echo Duild with ${{secrets.env-vars}}
