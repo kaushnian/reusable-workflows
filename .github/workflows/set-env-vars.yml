@@ -25,4 +25,5 @@ jobs:
         id: env-vars
         run: |
           ENV_VARS=GOOGLE_CLIENT_SECRET=${{ secrets.google-client-secret }}
+          echo "::add-mask::$ENV_VARS"
           echo "::set-output name=env-vars::$ENV_VARS"
