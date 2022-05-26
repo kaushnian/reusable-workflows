@@ -4,9 +4,19 @@ on:
     branches:
       - dev
 jobs:
+  set-env-vars:
+    name: Set env vars
+    uses: ./.github/workflows/set-env-vars.yml
+    secrets:
+      google-client-secret: SECRET-1
+      flags-environment-key: SECRET-2
+    
   build:
     name: Development Build and Test 
+    needs: set-env-vars
     uses: ./.github/workflows/build.yml
+    secrets:
+      env-vars: ${{needs.set-env-vars.outputs.env-vars}}
   
   ecr-push:
     name: Development Push to AWS ECR 
