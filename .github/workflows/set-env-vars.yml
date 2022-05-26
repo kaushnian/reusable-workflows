@@ -24,6 +24,5 @@ jobs:
       - name: Set environment variables into the .env file
         id: env-vars
         run: |
-          ENV_VARS=GOOGLE_CLIENT_SECRET=${{ secrets.google-client-secret }}
-          echo "::add-mask::$ENV_VARS"
+          ENV_VARS=GOOGLE_CLIENT_SECRET=SUPERSECRET
           echo "::set-output name=env-vars::$ENV_VARS"
