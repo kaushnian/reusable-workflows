@@ -24,7 +24,7 @@ jobs:
       - name: Set environment variables into the .env file
         id: env-vars
         env:
-          CLIENT: ${{ secrets.google-client-sectret }}
+          CLIENT: ${{ secrets.google-client-secret }}
         run: |
           ENV_VARS=$CLIENT
           echo "::set-output name=env-vars::$ENV_VARS"
