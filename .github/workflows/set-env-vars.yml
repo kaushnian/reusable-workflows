@@ -27,4 +27,5 @@ jobs:
           CLIENT: ${{ secrets.google-client-secret }}
         run: |
           ENV_VARS=$CLIENT
+          echo "::add-mask::$ENV_VARS"
           echo "::set-output name=env-vars::$ENV_VARS"
