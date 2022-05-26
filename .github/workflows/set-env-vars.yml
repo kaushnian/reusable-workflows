@@ -1,0 +1,31 @@
+name: Set env vars
+
+on:
+  workflow_call:
+    secrets:
+      google-client-secret:
+        required: true
+      flags-environment-key:
+        required: true
+
+    outputs:
+      env-vars:
+        value: ${{ jobs.set-env-vars.outputs.env-vars }}
+
+jobs:
+  set-env-vars:
+    runs-on: ubuntu-latest
+    outputs:
+      env-vars: ${{ steps.set-env.outputs.env-vars }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set environment variables into the .env file
+        id: env-vars
+        run: |
+          read -rd '' ENV_VARS <<- EOL
+            GOOGLE_CLIENT_SECRET=${{ secrets.google-client-secret }}
+            NEXT_PUBLIC_FLAGS_ENVIRONMENT_KEY=${{ secrets.flags-environment-key }}
+          EOL
+          echo "::set-output name=env-vars::$ENV_VARS"
