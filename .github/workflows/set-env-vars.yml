@@ -24,8 +24,5 @@ jobs:
       - name: Set environment variables into the .env file
         id: env-vars
         run: |
-          read -rd '' ENV_VARS <<- EOL
-            GOOGLE_CLIENT_SECRET=${{ secrets.google-client-secret }}
-            NEXT_PUBLIC_FLAGS_ENVIRONMENT_KEY=${{ secrets.flags-environment-key }}
-          EOL
+          ENV_VARS=GOOGLE_CLIENT_SECRET=${{ secrets.google-client-secret }}
           echo "::set-output name=env-vars::$ENV_VARS"
