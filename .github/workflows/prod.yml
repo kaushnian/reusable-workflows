@@ -5,7 +5,7 @@ on:
       - main
       
 env:
-  dot-env: 'DOT-ENV'
+  dot-env: DOT-ENV
       
 jobs:
   set-env-vars:
