@@ -5,7 +5,7 @@ on:
       - main
       
 env:
-  dot_env: DOT-ENV
+  dot-env: DOT-ENV
       
 jobs:
   set-env-vars:
@@ -14,7 +14,6 @@ jobs:
     secrets:
       google-client-secret: SECRET-1
       flags-environment-key: SECRET-2
-      env: ${{env.dot_env}}
     
   build:
     name: Production Build and Test 
