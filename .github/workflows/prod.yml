@@ -14,7 +14,7 @@ jobs:
     secrets:
       google-client-secret: SECRET-1
       flags-environment-key: SECRET-2
-      env: ${env.dot-env}
+      env: ${{env.dot-env}}
     
   build:
     name: Production Build and Test 
