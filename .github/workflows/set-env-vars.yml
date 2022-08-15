@@ -7,6 +7,8 @@ on:
         required: true
       flags-environment-key:
         required: true
+      env:
+        required: true
 
     outputs:
       env-vars:
@@ -26,6 +28,7 @@ jobs:
         env:
           CLIENT: ${{ secrets.google-client-secret }}
         run: |
+          echo $dot_env
           ENV_VARS=$CLIENT
           echo "::add-mask::$ENV_VARS"
           echo "::set-output name=env-vars::$ENV_VARS"
