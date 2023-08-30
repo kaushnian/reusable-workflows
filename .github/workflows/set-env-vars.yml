@@ -21,6 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - run: echo "${{secrets.SECRET1}}"
+
       - name: Set environment variables into the .env file
         id: env-vars
         env:
